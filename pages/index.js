@@ -7,8 +7,8 @@ export default function Home({ countries }) {
   const [filter, setFilter] = useState('');
   return (
     <MainContainer>
-      {countries.map((country) => (
-        <CountryCard key={country.name} country={country} />
+      {countries.map((country, index) => (
+        <CountryCard key={index} country={country} />
       ))}
     </MainContainer>
   );
