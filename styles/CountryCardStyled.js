@@ -1,18 +1,22 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 
-export const CardStyled = styled.div`
+export const CardStyled = styled.a`
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
   width: 225px;
   border-radius: 5px;
   height: 300px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
-    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  box-shadow: ${({ theme }) => theme.shadow}
   overflow: hidden;
   margin: 20px;
+  cursor: pointer;
   background-color: ${({ theme }) => theme.elements};
+  transition: transform 0.3s ease-in-out;
+  &:hover {
+    transform: scale(0.98);
+  }
 `;
 
 export const FlagContainerStyled = styled.div`

@@ -6,6 +6,8 @@ export const lightTheme = {
   background: 'hsl(0, 0%, 98%)',
   input: 'white',
   fontFamily: "'Nunito Sans', sans-serif",
+  shadow:
+    'rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;',
 };
 
 export const darkTheme = {
@@ -14,6 +16,8 @@ export const darkTheme = {
   background: 'rgb(32, 44, 55)',
   input: 'hsl(0, 0%, 52%)',
   fontFamily: "'Nunito Sans', sans-serif",
+  shadow:
+    'rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;',
 };
 
 export const GlobalStyles = createGlobalStyle`
