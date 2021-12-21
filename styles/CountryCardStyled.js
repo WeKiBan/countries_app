@@ -7,7 +7,6 @@ export const CardStyled = styled.a`
   flex-direction: column;
   width: 225px;
   border-radius: 5px;
-  height: 300px;
   box-shadow: ${({ theme }) => theme.shadow}
   overflow: hidden;
   cursor: pointer;
@@ -20,6 +19,7 @@ export const CardStyled = styled.a`
 
 export const FlagContainerStyled = styled.div`
   display: flex;
+  height: 150px;
   img {
     width: 100%;
   }

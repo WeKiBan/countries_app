@@ -13,9 +13,11 @@ import {
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { numberWithCommas } from '../../../utilities/commaNumber';
 
-const country = ({ countries, name }) => {
-  const country = countries.find((item) => item.name === name);
+const country = ({ countries, code }) => {
+  console.log(code);
+  const country = countries.find((item) => item.alpha3Code === code);
   const {
+    name,
     nativeName,
     currencies,
     capital,
@@ -83,8 +85,8 @@ const country = ({ countries, name }) => {
             <div>
               {borderNames.map((country, index) => (
                 <Link
-                  href="/country/[name]"
-                  as={`/country/${country.name}`}
+                  href="/country/[code]"
+                  as={`/country/${country.alpha3Code}`}
                   key={index}
                   passHref
                 >
@@ -108,16 +110,16 @@ export const getStaticProps = async (context) => {
   return {
     props: {
       countries: countries,
-      name: context.params.name,
+      code: context.params.code,
     },
   };
 };
 
 export const getStaticPaths = async () => {
-  const res = await fetch('https://restcountries.com/v3.1/all');
+  const res = await fetch('https://restcountries.com/v2/all');
   const countries = await res.json();
-  const names = countries.map((country) => country.name.common);
-  const paths = names.map((name) => ({ params: { name: name } }));
+  const codes = countries.map((country) => country.alpha3Code);
+  const paths = codes.map((code) => ({ params: { code: code } }));
   return {
     paths,
     fallback: false,
