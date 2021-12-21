@@ -21,21 +21,28 @@ export const CardStyled = styled.a`
 
 export const FlagContainerStyled = styled.div`
   display: flex;
-  height: 150px;
-  background: url(${({ bg }) => bg});
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  img {
+    width: 100%;
+  }
+`;
+
+export const InfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  margin: 20px;
 `;
 
 export const CountryNameStyled = styled.h3`
-  margin: 15px 20px;
+  margin: 0;
+  margin-bottom: 5px;
   font-size: 18px;
   font-weight: 600;
 `;
 
 export const ParagraphStyled = styled.p`
-  margin: 5px 20px;
+  margin: 5px 0;
   font-size: 14px;
 `;
 

@@ -15,16 +15,18 @@ export const GoBackButton = styled.button`
   justify-content: space-evenly;
   padding: 5px 0;
   margin: 0;
-  margin-top: 20px;
+  margin: 20px 0;
   background: ${({ theme }) => theme.input};
   border: none;
   border-radius: 2px;
   box-shadow: ${({ theme }) => theme.shadow};
+  font-weight: 300;
+  font-size: 12px;
 `;
 
 export const FlagContainer = styled.div`
   display: flex;
-  margin-top: 20px;
+  margin-bottom: 20px;
   width: 100%;
   img {
     width: 100%;
@@ -37,7 +39,8 @@ export const InfoContainer = styled.div`
   grid-template-areas:
     'countryName'
     'infoSectionOne'
-    'infoSectionTwo';
+    'infoSectionTwo'
+    'borderCountries';
 `;
 
 export const CountryName = styled.h2`
@@ -61,5 +64,41 @@ export const InfoSectionTwo = styled.div`
   font-size: 12px;
   span {
     font-weight: 300;
+  }
+`;
+
+export const BorderCountriesContainer = styled.div`
+  grid-area: borderCountries;
+  margin-bottom: 30px;
+  h3 {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  a {
+    min-width: 75px;
+    height: 25px;
+    background-color: ${({ theme }) => theme.input};
+    border: none;
+    border-radius: 2px;
+    box-shadow: ${({ theme }) => theme.shadow};
+    font-weight: 300;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    transition: transform 0.3s ease-in-out;
+    &:hover {
+      transform: scale(0.95);
+    }
   }
 `;

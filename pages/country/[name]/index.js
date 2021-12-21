@@ -8,14 +8,14 @@ import {
   CountryName,
   InfoSectionOne,
   InfoSectionTwo,
+  BorderCountriesContainer,
 } from '../../../styles/CountryStyled';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { numberWithCommas } from '../../../utilities/commaNumber';
 
-const country = ({
-  country,
-  country: {
-    name,
+const country = ({ countries, name }) => {
+  const country = countries.find((item) => item.name === name);
+  const {
     nativeName,
     currencies,
     capital,
@@ -26,9 +26,12 @@ const country = ({
     borders,
     topLevelDomain,
     languages,
-  },
-}) => {
-  console.log(country, borders);
+  } = country;
+
+  const borderNames = borders.map((item) =>
+    countries.find((country) => country.alpha3Code === item)
+  );
+
   return (
     <CountryPageContainer>
       <Link href="/">
@@ -37,13 +40,10 @@ const country = ({
         </GoBackButton>
       </Link>
       <FlagContainer>
-        <img
-          src={flags.svg}
-          alt="flag"
-        />
+        <img src={flags.svg} alt="flag" />
       </FlagContainer>
       <InfoContainer>
-        <CountryName>{name.common}</CountryName>
+        <CountryName>{name}</CountryName>
         <InfoSectionOne>
           <p>
             Native Name: <span>{nativeName}</span>
@@ -76,6 +76,26 @@ const country = ({
             <span>{languages.map((language) => language.name).toString()}</span>
           </p>
         </InfoSectionTwo>
+        <BorderCountriesContainer>
+          <h3>Border Countries:</h3>
+
+          {borders ? (
+            <div>
+              {borderNames.map((country, index) => (
+                <Link
+                  href="/country/[name]"
+                  as={`/country/${country.name}`}
+                  key={index}
+                  passHref
+                >
+                  <a>{country.name}</a>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            'N/A'
+          )}
+        </BorderCountriesContainer>
       </InfoContainer>
     </CountryPageContainer>
   );
@@ -83,12 +103,12 @@ const country = ({
 
 export const getStaticProps = async (context) => {
   const res = await fetch('https://restcountries.com/v2/all');
-  const data = await res.json();
-  const country = data.find((item) => item.name === context.params.name);
+  const countries = await res.json();
 
   return {
     props: {
-      country: country,
+      countries: countries,
+      name: context.params.name,
     },
   };
 };
