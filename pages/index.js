@@ -1,15 +1,18 @@
 import { useState } from 'react';
-import { MainContainer } from '../styles/StyledHome';
+import { MainContainer, CardContainer } from '../styles/StyledHome';
 import CountryCard from '../components/CountryCard';
-import Link from 'next/link';
+import Inputs from '../components/Inputs';
 
 export default function Home({ countries }) {
   const [filter, setFilter] = useState('');
   return (
     <MainContainer>
-      {countries.map((country, index) => (
-        <CountryCard key={index} country={country} />
-      ))}
+      <Inputs />
+      <CardContainer>
+        {countries.map((country, index) => (
+          <CountryCard key={index} country={country} />
+        ))}
+      </CardContainer>
     </MainContainer>
   );
 }

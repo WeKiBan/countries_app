@@ -10,7 +10,6 @@ export const CardStyled = styled.a`
   height: 300px;
   box-shadow: ${({ theme }) => theme.shadow}
   overflow: hidden;
-  margin: 20px;
   cursor: pointer;
   background-color: ${({ theme }) => theme.elements};
   transition: transform 0.3s ease-in-out;
