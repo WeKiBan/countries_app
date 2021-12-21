@@ -12,9 +12,16 @@ function Inputs() {
     <InputContainer>
       <SearchInputWrapper>
         <SearchIcon />
-        <SearchInput />
+        <SearchInput placeholder="Search for a country..." />
       </SearchInputWrapper>
-      <SelectInput />
+      <SelectInput>
+        <option value="">Filter by Region</option>
+        <option value="africa">Africa</option>
+        <option value="america">America</option>
+        <option value="asia">Asia</option>
+        <option value="europe">Europe</option>
+        <option value="oceania">Oceania</option>
+      </SelectInput>
     </InputContainer>
   );
 }
