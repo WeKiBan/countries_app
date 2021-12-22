@@ -29,7 +29,7 @@ const country = ({ countries, code }) => {
     languages,
   } = country;
 
-  const borderNames = borders.map((item) =>
+  const borderNames = borders?.map((item) =>
     countries.find((country) => country.alpha3Code === item)
   );
 
