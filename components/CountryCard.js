@@ -10,7 +10,6 @@ import {
 import { numberWithCommas } from '../utilities/commaNumber';
 
 function CountryCard({ country }) {
-  console.log(country);
   return (
     <Link href="/country/[code]" as={`/country/${country.alpha3Code}`} passHref>
       <CardStyled>

@@ -1,15 +1,62 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MainContainer, CardContainer } from '../styles/StyledHome';
 import CountryCard from '../components/CountryCard';
 import Inputs from '../components/Inputs';
 
 export default function Home({ countries }) {
-  const [filter, setFilter] = useState('');
+  const [filteredCountries, setFilteredCountries] = useState(countries);
+  const [regionCountries, setRegionCountries] = useState(countries);
+  const [region, setRegion] = useState('');
+  const [query, setQuery] = useState('');
+
+  const handleSetFilteredCountries = (currentQuery) => {
+    let newFilteredCountries;
+
+    if (query) {
+      newFilteredCountries = regionCountries.filter((country) =>
+        country.name.toLowerCase().includes(currentQuery.toLowerCase())
+      );
+    } else {
+      newFilteredCountries = regionCountries;
+    }
+
+    setFilteredCountries(newFilteredCountries);
+  };
+
+  const handleSetRegion = (currentRegion) => {
+    let newRegionCountries;
+
+    if (currentRegion) {
+      newRegionCountries = countries.filter(
+        (country) => country.region.toLowerCase() === currentRegion
+      );
+    } else {
+      newRegionCountries = countries;
+    }
+    setRegion(currentRegion);
+
+    setRegionCountries(newRegionCountries);
+  };
+
+  useEffect(() => {
+    handleSetFilteredCountries(query);
+  }, [query]);
+
+  useEffect(() => {
+    handleSetFilteredCountries(query);
+  }, [regionCountries]);
+
   return (
     <MainContainer>
-      <Inputs />
+      <Inputs
+        region={region}
+        handleSetRegion={handleSetRegion}
+        query={query}
+        setQuery={setQuery}
+        handleSetFilteredCountries={handleSetFilteredCountries}
+      />
       <CardContainer>
-        {countries.map((country, index) => (
+        {filteredCountries.map((country, index) => (
           <CountryCard key={index} country={country} />
         ))}
       </CardContainer>

@@ -22,6 +22,7 @@ export const FlagContainerStyled = styled.div`
   height: 150px;
   img {
     width: 100%;
+    object-fit: cover;
   }
 `;
 

@@ -14,7 +14,6 @@ import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { numberWithCommas } from '../../../utilities/commaNumber';
 
 const country = ({ countries, code }) => {
-  console.log(code);
   const country = countries.find((item) => item.alpha3Code === code);
   const {
     name,

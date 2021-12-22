@@ -22,7 +22,7 @@ export const CountryPageContainer = styled.div`
 `;
 
 export const GoBackButton = styled.button`
-  grid-area: button
+  grid-area: button;
   display: flex;
   align-items: center;
   width: 75px;
@@ -63,16 +63,17 @@ export const InfoContainer = styled.div`
   display: grid;
   grid-gap: 15px;
   grid-template-areas:
-    'countryName'
-    'infoSectionOne'
-    'infoSectionTwo'
-    'borderCountries';
-  @media (min-width: 750px) {
+    'countryName CountryName'
+    'infoSectionOne infoSectionTwo'
+    'borderCountries borderCountries';
+  grid-gap: 30px;
+  @media (max-width: 750px) {
+    justify-content: flex-start;
     grid-template-areas:
-      'countryName CountryName'
-      'infoSectionOne infoSectionTwo'
-      'borderCountries borderCountries';
-    grid-gap: 30px;
+      'countryName'
+      'infoSectionOne'
+      'infoSectionTwo'
+      'borderCountries';
   }
 `;
 

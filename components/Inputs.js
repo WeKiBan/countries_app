@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   InputContainer,
   SearchInputWrapper,
@@ -7,17 +8,34 @@ import {
 } from '../styles/InputsStyled';
 import { BsSearch } from 'react-icons/bs';
 
-function Inputs() {
+function Inputs({
+  handleSetFilteredCountries,
+  setQuery,
+  query,
+  region,
+  handleSetRegion,
+}) {
+  const handleSetQuery = (currentQuery) => {
+    setQuery(currentQuery);
+  };
+
   return (
     <InputContainer>
       <SearchInputWrapper>
         <SearchIcon />
-        <SearchInput placeholder="Search for a country..." />
+        <SearchInput
+          value={query}
+          onChange={(e) => handleSetQuery(e.target.value)}
+          placeholder="Search for a country..."
+        />
       </SearchInputWrapper>
-      <SelectInput>
+      <SelectInput
+        value={region}
+        onChange={(e) => handleSetRegion(e.target.value)}
+      >
         <option value="">Filter by Region</option>
         <option value="africa">Africa</option>
-        <option value="america">America</option>
+        <option value="americas">America</option>
         <option value="asia">Asia</option>
         <option value="europe">Europe</option>
         <option value="oceania">Oceania</option>
