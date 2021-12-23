@@ -5,7 +5,7 @@ import { FaMoon, FaRegMoon } from 'react-icons/fa';
 function Nav({ toggleTheme, dark }) {
   return (
     <NavStyled>
-      <Link href="/">
+      <Link href="/" passHref>
         <LinkStyled>Where in the world?</LinkStyled>
       </Link>
       <ButtonStyled onClick={toggleTheme}>

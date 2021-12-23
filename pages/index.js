@@ -40,10 +40,12 @@ export default function Home({ countries }) {
 
   useEffect(() => {
     handleSetFilteredCountries(query);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
 
   useEffect(() => {
     handleSetFilteredCountries(query);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [regionCountries]);
 
   return (

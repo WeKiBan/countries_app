@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 import Image from 'next/image';
 import {
@@ -69,7 +70,9 @@ const country = ({ country }) => {
           </p>
           <p>
             Languages:{' '}
-            <span>{languages?.map((language) => language.name).toString()}</span>
+            <span>
+              {languages?.map((language) => language.name).toString()}
+            </span>
           </p>
         </InfoSectionTwo>
         <BorderCountriesContainer>
@@ -105,7 +108,7 @@ export const getStaticProps = async (context) => {
 
   return {
     props: {
-      country: country,
+      country,
     },
   };
 };
