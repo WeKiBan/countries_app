@@ -13,8 +13,7 @@ import {
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { numberWithCommas } from '../../../utilities/commaNumber';
 
-const country = ({ countries, code }) => {
-  const country = countries.find((item) => item.alpha3Code === code);
+const country = ({ country }) => {
   const {
     name,
     nativeName,
@@ -29,13 +28,9 @@ const country = ({ countries, code }) => {
     languages,
   } = country;
 
-  const borderNames = borders?.map((item) =>
-    countries.find((country) => country.alpha3Code === item)
-  );
-
   return (
     <CountryPageContainer>
-      <Link href="/">
+      <Link href="/" passHref>
         <GoBackButton>
           <AiOutlineArrowLeft /> Back
         </GoBackButton>
@@ -69,12 +64,12 @@ const country = ({ countries, code }) => {
           <p>
             Currencies:{' '}
             <span>
-              {currencies.map((currency) => currency.name).toString()}
+              {currencies?.map((currency) => currency.name).toString()}
             </span>
           </p>
           <p>
             Languages:{' '}
-            <span>{languages.map((language) => language.name).toString()}</span>
+            <span>{languages?.map((language) => language.name).toString()}</span>
           </p>
         </InfoSectionTwo>
         <BorderCountriesContainer>
@@ -82,14 +77,14 @@ const country = ({ countries, code }) => {
 
           {borders ? (
             <div>
-              {borderNames.map((country, index) => (
+              {borders?.map((country, index) => (
                 <Link
                   href="/country/[code]"
-                  as={`/country/${country.alpha3Code}`}
+                  as={`/country/${country}`}
                   key={index}
                   passHref
                 >
-                  <a>{country.name}</a>
+                  <a>{country}</a>
                 </Link>
               ))}
             </div>
@@ -103,13 +98,14 @@ const country = ({ countries, code }) => {
 };
 
 export const getStaticProps = async (context) => {
-  const res = await fetch('https://restcountries.com/v2/all');
-  const countries = await res.json();
+  const res = await fetch(
+    `https://restcountries.com/v2/alpha/${context.params.code}`
+  );
+  const country = await res.json();
 
   return {
     props: {
-      countries: countries,
-      code: context.params.code,
+      country: country,
     },
   };
 };
@@ -117,8 +113,8 @@ export const getStaticProps = async (context) => {
 export const getStaticPaths = async () => {
   const res = await fetch('https://restcountries.com/v2/all');
   const countries = await res.json();
-  const codes = countries.map((country) => country.alpha3Code);
-  const paths = codes.map((code) => ({ params: { code: code } }));
+  const codes = countries?.map((country) => country.alpha3Code);
+  const paths = codes?.map((code) => ({ params: { code: code } }));
   return {
     paths,
     fallback: false,

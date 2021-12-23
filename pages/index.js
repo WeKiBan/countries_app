@@ -56,7 +56,7 @@ export default function Home({ countries }) {
         handleSetFilteredCountries={handleSetFilteredCountries}
       />
       <CardContainer>
-        {filteredCountries.map((country, index) => (
+        {filteredCountries?.map((country, index) => (
           <CountryCard key={index} country={country} />
         ))}
       </CardContainer>
