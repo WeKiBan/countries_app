@@ -1,34 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Rest Countries API App
 
-## Getting Started
+## Table of contents
 
-First, run the development server:
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Overview
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### The challenge
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Users should be able to:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- See all countries from the API on the homepage
+- Search for a country using an `input` field
+- Filter countries by region
+- Click on a country to see more detailed information on a separate page
+- Click through to the border countries on the detail page
+- Toggle the color scheme between light and dark mode
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Screenshot
 
-## Learn More
+![](images/restCountries.gif)
 
-To learn more about Next.js, take a look at the following resources:
+### Links
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Solution URL: [https://github.com/WeKiBan/ip-address-tracker](https://github.com/WeKiBan/ip-address-tracker)
+- Live Site URL: [https://restcountrysearch.netlify.app/](https://restcountrysearch.netlify.app/)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## My process
 
-## Deploy on Vercel
+### Built with
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- HTML/CSS
+- Flexbox
+- Grid
+- [React](https://reactjs.org/) - JS library
+- [Styled Components](https://styled-components.com/) - For Styling.
+- [NextJS](https://nextjs.org/) - React Library which enables server-side rendering.
+- [Rest Countries API](https://restcountries.com/) - API from where countries data is fetched.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### What I learned
+
+### Continued development
+
+- Add a map feature using something like the Leaflet API to show where each country is.
+
+### Useful resources
+
+- [NextJS tutorial for beginners by Net Ninja](https://www.youtube.com/watch?v=A63UxsQsEbU&list=PL4cUxeGkcC9g9gP2onazU5-2M-AzA8eBw) - A Youtube course which I found very useful to learn the basics of NextJS
+- [NextJS Crash Course by Brad Traversy](https://www.youtube.com/watch?v=mTz0GXj8NN0&t=3129s) - Another short course that helped me get a good understanding of how to use NextJS
