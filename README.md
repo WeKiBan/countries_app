@@ -31,7 +31,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [https://github.com/WeKiBan/ip-address-tracker](https://github.com/WeKiBan/ip-address-tracker)
+- Solution URL: [https://github.com/WeKiBan/countries_app](https://github.com/WeKiBan/countries_app)
 - Live Site URL: [https://restcountrysearch.netlify.app/](https://restcountrysearch.netlify.app/)
 
 ## My process
